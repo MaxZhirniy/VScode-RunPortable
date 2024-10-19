@@ -9,7 +9,7 @@
 #include <nlohmann/json.hpp> 
 
 using namespace std;
-namespace fs = filesystem;
+using fs = filesystem;
 using json = nlohmann::json;
 
 string getExecutablePath() {

@@ -111,10 +111,10 @@ bool processConfpathFile(
     string fileContent = buffer.str();
     if (fileContent.empty()) {
         fileContent = currentDriveLetter + "\n" + \
-"--Below you can add relative paths to files using a changing drive letter------Don't Delete this string---CommentString-\n \
-\\data\\user-data\\User\\profiles\\settings.json\n \
-\\data\\user-data\\User\\profiles\\:uuid:\\extensions.json\n \
-\\data\\user-data\\User\\globalStorage\\storage.json\n \
+"--Below you can add relative paths to files using a changing drive letter------Don't Delete this string---CommentString-\n\
+\\data\\user-data\\User\\profiles\\settings.json\n\
+\\data\\user-data\\User\\profiles\\:uuid:\\extensions.json\n\
+\\data\\user-data\\User\\globalStorage\\storage.json\n\
 \\data\\user-data\\User\\profiles\\:uuid:\\settings.json\n";
     }
     confpathFile.close();

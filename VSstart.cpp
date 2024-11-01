@@ -171,6 +171,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         if (args) {args++; }
     } else {args = wcschr(args, L' '); }
     while (args && *args == L' '){ args++; }
-    ShellExecuteW(nullptr, L"open", L"code.exe", args, nullptr, SW_HIDE);
+    string pathCodeExe = getExecutablePath() + "vscodium.exe";
+    wstring wideFullPath(pathCodeExe.begin(), pathCodeExe.end());
+    ShellExecuteW(nullptr, L"open", wideFullPath.c_str(), args, nullptr, SW_HIDE);
     return 0;
 }

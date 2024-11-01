@@ -9,7 +9,7 @@
 #include <nlohmann/json.hpp> 
 
 using namespace std;
-using fs = filesystem;
+namespace fs = filesystem;
 using json = nlohmann::json;
 
 string getExecutablePath() {
@@ -165,6 +165,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             }
         }
     }
-    ShellExecute(NULL, "open", "Code.exe", NULL, NULL, SW_HIDE);
+    LPCWSTR args = GetCommandLineW();
+    if (args[0] == L'"'){
+        args = wcschr(args + 1, L'"');
+        if (args) {args++; }
+    } else {args = wcschr(args, L' '); }
+    while (args && *args == L' '){ args++; }
+    ShellExecuteW(nullptr, L"open", L"code.exe", args, nullptr, SW_HIDE);
     return 0;
 }

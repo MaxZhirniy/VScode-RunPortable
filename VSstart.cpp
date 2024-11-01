@@ -171,7 +171,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         if (args) {args++; }
     } else {args = wcschr(args, L' '); }
     while (args && *args == L' '){ args++; }
-    string pathCodeExe = getExecutablePath() + "code.exe";
+    string pathCodeExe = getExecutablePath() + "\\Code.exe";
     wstring wideFullPath(pathCodeExe.begin(), pathCodeExe.end());
     ShellExecuteW(nullptr, L"open", wideFullPath.c_str(), args, nullptr, SW_HIDE);
     return 0;
